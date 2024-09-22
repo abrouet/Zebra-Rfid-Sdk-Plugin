@@ -25,6 +25,7 @@ public class ZebraRfidSdkPlugin implements FlutterPlugin, MethodCallHandler, Str
   private MethodChannel channel;
   private EventChannel eventChannel;
   private RFIDHandler rfidHandler;
+  private static ArrayList<ReaderDevice> readersListArray;
   private Context context;
   private EventChannel.EventSink sink = null;
 
@@ -47,7 +48,15 @@ public class ZebraRfidSdkPlugin implements FlutterPlugin, MethodCallHandler, Str
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
     switch (call.method) {
       case "getPlatformVersion":
-        result.success("Android " + android.os.Build.VERSION.RELEASE);
+        readersListArray =  rfidHandler.getReadersList();
+        if (readersListArray.size() > 0) {
+          readerDevice = readersListArray.get(0);
+          reader = readerDevice.getRFIDReader();
+          result.success("Android " + reader.getHostName());
+        } else {
+          result.success("Android " + 'nothing');
+        }
+
         break;
       case "toast":
         String txt=call.argument("text");
