@@ -79,8 +79,8 @@ public class RFIDHandler implements Readers.RFIDReaderEventHandler {
     public void connect(final Result result) {
         Readers.attach(this);
         if (readers == null) {
-//            readers = new Readers(context,ENUM_TRANSPORT.BLUETOOTH);
-            readers = new Readers(context,Readers.ReaderType.BLUETOOTH, Readers.Region.NOT_SPECIFIED);
+            readers = new Readers(context,ENUM_TRANSPORT.BLUETOOTH);
+//            readers = new Readers(context,Readers.ReaderType.BLUETOOTH, Readers.Region.NOT_SPECIFIED);
             //readers = new Readers(context, ENUM_TRANSPORT.SERVICE_SERIAL);
         }
         Log.d("TAG", "CONNECTING THE READER");
