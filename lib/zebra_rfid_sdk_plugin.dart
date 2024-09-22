@@ -46,6 +46,17 @@ class ZebraRfidSdkPlugin {
     }
   }
 
+   ///connect device
+  static Future<dynamic> connectBluetooth() async {
+    try {
+      await _addEventChannelHandler();
+      var result = await _channel.invokeMethod('connectBluetooth');
+      return result;
+    } catch (e) {
+      var a = e;
+    }
+  }
+
   ///disconnect device
   static Future<dynamic> disconnect() async {
     return _channel.invokeMethod('disconnect');
