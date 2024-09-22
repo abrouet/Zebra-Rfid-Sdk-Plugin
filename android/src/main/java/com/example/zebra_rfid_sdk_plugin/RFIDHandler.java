@@ -220,6 +220,7 @@ public class RFIDHandler implements Readers.RFIDReaderEventHandler {
         try {
             if(readers!=null) {
                 readersListArray = readers.GetAvailableRFIDReaderList();
+                Log.d(TAG, "READER  ID " + readersListArray[0]);
                 return readersListArray;
             }
         }catch (InvalidUsageException e){
