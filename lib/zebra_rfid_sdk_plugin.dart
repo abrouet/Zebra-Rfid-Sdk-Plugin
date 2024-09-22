@@ -14,6 +14,7 @@ class ZebraRfidSdkPlugin {
     final String version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
+  
 
   static Future<dynamic> toast(String text) async {
     return _channel.invokeMethod('toast', {"text": text});
@@ -28,6 +29,11 @@ class ZebraRfidSdkPlugin {
   static Future<dynamic> write() async {
     return _channel.invokeMethod('write');
   }
+
+  static Future<dynamic> getReadersList() async {
+    return _channel.invokeMethod('getReadersList');
+  }
+
 
   ///connect device
   static Future<dynamic> connect() async {
