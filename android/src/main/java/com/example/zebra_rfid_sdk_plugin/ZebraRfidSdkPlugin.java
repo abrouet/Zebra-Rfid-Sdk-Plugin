@@ -54,7 +54,7 @@ public class ZebraRfidSdkPlugin implements FlutterPlugin, MethodCallHandler, Str
           reader = readerDevice.getRFIDReader();
           result.success("Android " + reader.getHostName());
         } else {
-          result.success("Android " + 'nothing');
+          result.success("Android Nothing");
         }
 
         break;
