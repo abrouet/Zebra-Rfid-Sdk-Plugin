@@ -216,6 +216,7 @@ public class RFIDHandler implements Readers.RFIDReaderEventHandler {
 
     ///Get reader information
     public   ArrayList<ReaderDevice> getReadersList() {
+        Log.d(TAG, "READER LIST ");
         ArrayList<ReaderDevice> readersListArray=new  ArrayList<ReaderDevice>();
         try {
             if(readers!=null) {
