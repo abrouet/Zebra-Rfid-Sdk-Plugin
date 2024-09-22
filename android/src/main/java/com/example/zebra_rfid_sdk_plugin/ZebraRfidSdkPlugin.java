@@ -26,6 +26,8 @@ public class ZebraRfidSdkPlugin implements FlutterPlugin, MethodCallHandler, Str
   private EventChannel eventChannel;
   private RFIDHandler rfidHandler;
   private static ArrayList<ReaderDevice> readersListArray;
+  private static ReaderDevice readerDevice;
+  private static RFIDReader reader;
   private Context context;
   private EventChannel.EventSink sink = null;
 
