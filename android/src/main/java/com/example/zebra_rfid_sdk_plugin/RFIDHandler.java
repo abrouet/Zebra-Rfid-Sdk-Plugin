@@ -220,7 +220,14 @@ public class RFIDHandler implements Readers.RFIDReaderEventHandler {
         try {
             if(readers!=null) {
                 readersListArray = readers.GetAvailableRFIDReaderList();
-                Log.d(TAG, "READER  ID " + readersListArray[0]);
+                 if (readersListArray.size() > 0) {
+                            readerDevice = readersListArray.get(0);
+                            reader = readerDevice.getRFIDReader();
+                      Log.d(TAG, "READER FOUND ");
+                        } else {
+                         Log.d(TAG, "READER NOT FOUND ");
+                        }
+               
                 return readersListArray;
             }
         }catch (InvalidUsageException e){
