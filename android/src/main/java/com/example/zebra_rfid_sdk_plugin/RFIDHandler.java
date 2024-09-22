@@ -129,15 +129,11 @@ public class RFIDHandler implements Readers.RFIDReaderEventHandler {
                     }
 
                 } catch (InvalidUsageException ex) {
-                    Log.d(TAG, "InvalidUsageException");
+                    Log.e(TAG, "InvalidUsageException: " + ex.getMessage());
                     return ex.getMessage();
-
-//                    exceptionIN = ex;
                 } catch (OperationFailureException e) {
-                    String details = e.getStatusDescription();
-                    String a= e.getVendorMessage();
-                    return details;
-//                    exception = e;
+                    Log.e(TAG, "OperationFailureException: " + e.getStatusDescription());
+                    return e.getStatusDescription();
                 }
                 return null;
             }
